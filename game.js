@@ -1,7 +1,7 @@
 
 function runGame(){
   console.log("Lauch Game !");
-  configureGame(30,3,5);
+  configureGame(30, 3, 3, 5);
   gameInteraction();
 }
 
@@ -62,13 +62,17 @@ var gameInteraction = function(){
 //------------------------- Game  initialisation -------------------------
 //------------------------------------------------------------------------
 
-var generateTracks = function(trackLength){
+var generateTracks = function(trackLength, trackWidth){
   var lineContent = '';
   for(var i=0; i<trackLength; i++ ){
     lineContent +='<td></td>';
   }
 
-  var line = '<tr>' + lineContent + '</tr>';
+  var line = '';
+  for(var i=0; i<trackWidth; i++ ){
+    line += '<tr>' + lineContent + '</tr>';
+  }
+
 
   // On cherche les tracks.
   $("tbody.track").empty().append(line);
@@ -83,9 +87,9 @@ var generateTracks = function(trackLength){
 
 // Fonction configurant le jeu :
 // On définit la longeur des deux pistes
-var configureGame  = function(trackLength, finish_1, finish_2){
+var configureGame  = function(trackLength, trackWidth, finish_1, finish_2){
   // Test that track length are below a limit.
-  generateTracks(trackLength);
+  generateTracks(trackLength, trackWidth);
 
   // set first case active
   $('tbody tr td:nth-child(1)').addClass("active");

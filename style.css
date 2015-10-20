@@ -16,15 +16,21 @@
   background-image: url("images/player_2.png");
 }
 
-tr:first-child td:nth-child(even) {
-  border-bottom: 2px solid black;
+tr{
+  border-bottom: 1px solid #DDDDDD;
 }
 
 /*td:last-child {
   border-right: 2px dashed black;
 }*/
 
+
 td.finish_line{
   border-left: 2px dashed black;
   background-color: #FFCC66;
+}
+
+tbody {
+
+  border: 2px solid black;
 }
