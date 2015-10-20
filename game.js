@@ -1,5 +1,11 @@
 
 
+// Current and next are Jquery element pointing toward td.
+var moveFromCellToCell = function (current,next){
+  current.removeClass('active');
+  next   .addClass(   'active');
+}
+
 // Move forward the Nth wagon.
 // @param wagonIndex is an int starting on 0
 var moveForward   = function(playerIndex){
@@ -11,14 +17,14 @@ var moveForward   = function(playerIndex){
   var currentCell = $(selector).first();
   var nextCell    = currentCell.next('td');
 
-  if(!nextCell.hasClass("finish_line")){
-    // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
-    currentCell.removeClass('active');
-    nextCell   .addClass(   'active');
-  } else {
+  if(nextCell.hasClass("finish_line")){
     console.log("Player " + playerIndex + " reached finish line !");
     $('html').off("keyup");
   }
+
+  // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
+  moveFromCellToCell(currentCell, nextCell);
+
 }
 
 var gameInteraction = function(){
