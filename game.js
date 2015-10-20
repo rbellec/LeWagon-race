@@ -64,13 +64,18 @@ var generateTracks = function(trackLength){
 var configureGame  = function(trackLength, finish_1, finish_2){
   // Test that track length are below a limit.
   generateTracks(trackLength);
+
+  // set first case active
+  $('tbody tr td:nth-child(1)').addClass("active");
+
+  // set finish lines
   $('tbody:nth-child(1) td:nth-child(' + finish_1 + ')').addClass("finish_line");
   $('tbody:nth-child(2) td:nth-child(' + finish_2 + ')').addClass("finish_line");
 
 }
 
 $(document).ready(function() {
-  configureGame(15,3,5);
+  configureGame(30,3,5);
   gameInteraction();
 });
 
