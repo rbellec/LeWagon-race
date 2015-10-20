@@ -40,8 +40,18 @@ var gameInteraction = function(){
   });
 };
 
+// Fonction configurant le jeu :
+// On définit la longeur des deux pistes
+var configureGame = function(trackLength1,trackLength2){
+  // Test that track length are below a limit.
+
+  $('tr:nth-child(1) td:nth-child(' + trackLength1 + ')').addClass("finish_line");
+  $('tr:nth-child(2) td:nth-child(' + trackLength2 + ')').addClass("finish_line");
+
+}
 
 $(document).ready(function() {
+  configureGame(3,5);
   gameInteraction();
 });
 
