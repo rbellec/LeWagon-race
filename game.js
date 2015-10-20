@@ -11,7 +11,7 @@ var moveForward   = function(playerIndex){
   var currentCell = $(selector).first();
   var nextCell    = currentCell.next('td');
 
-  if(nextCell.length){
+  if(!nextCell.hasClass("finish_line")){
     // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
     currentCell.removeClass('active');
     nextCell   .addClass(   'active');
