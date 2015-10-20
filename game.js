@@ -11,7 +11,7 @@ var moveFromCellToCell = function (current,next){
 var moveForward   = function(playerIndex){
 
   // 1 on crée la chaine de caractère séléctionnant le wagon sur la Nieme ligne.
-  var selector    = 'tr:nth-child(' + playerIndex + ') td.active';
+  var selector    = 'tbody:nth-child(' + playerIndex + ') td.active';
 
   // On stocke l'élément Jquery pointant vers cette cellule et vers la cellule suivante.
   var currentCell = $(selector).first();
@@ -45,8 +45,8 @@ var gameInteraction = function(){
 var configureGame = function(trackLength1,trackLength2){
   // Test that track length are below a limit.
 
-  $('tr:nth-child(1) td:nth-child(' + trackLength1 + ')').addClass("finish_line");
-  $('tr:nth-child(2) td:nth-child(' + trackLength2 + ')').addClass("finish_line");
+  $('tbody:nth-child(1) td:nth-child(' + trackLength1 + ')').addClass("finish_line");
+  $('tbody:nth-child(2) td:nth-child(' + trackLength2 + ')').addClass("finish_line");
 
 }
 
