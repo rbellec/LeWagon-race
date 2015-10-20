@@ -92,7 +92,7 @@ var configureGame  = function(trackLength, trackWidth, finish_1, finish_2){
   generateTracks(trackLength, trackWidth);
 
   // set first case active
-  $('tbody tr td:nth-child(1)').addClass("active");
+  $('tbody tr:nth-child(1) td:nth-child(1)').addClass("active");
 
   // set finish lines
   $('tbody:nth-child(1) td:nth-child(' + finish_1 + ')').addClass("finish_line");
