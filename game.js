@@ -11,13 +11,18 @@ var moveForward   = function(playerIndex){
   var currentCell = $(selector).first();
   var nextCell    = currentCell.next('td');
 
-  // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
-  currentCell.removeClass('active');
-  nextCell   .addClass(   'active');
+  if(nextCell.length){
+    // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
+    currentCell.removeClass('active');
+    nextCell   .addClass(   'active');
+  } else {
+    console.log("Player " + playerIndex + " reached finish line !");
+    $('html').off("keyup");
+  }
 }
 
 var gameInteraction = function(){
-  $('html').keyup(function(event) {
+  $('html').on("keyup",function(event) {
     if (event.which == 82) {
       moveForward(1);
 
