@@ -40,18 +40,37 @@ var gameInteraction = function(){
   });
 };
 
+var generateTracks = function(trackLength){
+  var lineContent = '';
+  for(var i=0; i<trackLength; i++ ){
+    lineContent +='<td></td>';
+  }
+
+  var line = '<tr>' + lineContent + '</tr>';
+
+  // On cherche les tracks.
+  $("tbody.track").empty().append(line);
+
+  // $("tbody.track").each(function() {
+  //   $(this).empty();
+  //   $(this).append(line);
+  // });
+
+
+}
+
 // Fonction configurant le jeu :
 // On définit la longeur des deux pistes
-var configureGame = function(trackLength1,trackLength2){
+var configureGame  = function(trackLength, finish_1, finish_2){
   // Test that track length are below a limit.
-
-  $('tbody:nth-child(1) td:nth-child(' + trackLength1 + ')').addClass("finish_line");
-  $('tbody:nth-child(2) td:nth-child(' + trackLength2 + ')').addClass("finish_line");
+  generateTracks(trackLength);
+  $('tbody:nth-child(1) td:nth-child(' + finish_1 + ')').addClass("finish_line");
+  $('tbody:nth-child(2) td:nth-child(' + finish_2 + ')').addClass("finish_line");
 
 }
 
 $(document).ready(function() {
-  configureGame(3,5);
+  configureGame(15,3,5);
   gameInteraction();
 });
 
