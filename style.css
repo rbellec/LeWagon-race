@@ -20,6 +20,11 @@ tr:first-child td:nth-child(even) {
   border-bottom: 2px solid black;
 }
 
-td:last-child {
+/*td:last-child {
   border-right: 2px dashed black;
+}*/
+
+td.finish_line{
+  border-left: 2px dashed black;
+  background-color: #FFCC66;
 }
