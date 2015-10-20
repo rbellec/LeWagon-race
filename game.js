@@ -1,4 +1,10 @@
 
+function runGame(){
+  console.log("Lauch Game !");
+  configureGame(30,3,5);
+  gameInteraction();
+}
+
 
 // Current and next are Jquery element pointing toward td.
 var moveFromCellToCell = function (current,next){
@@ -20,6 +26,12 @@ var moveForward   = function(playerIndex){
   if(nextCell.hasClass("finish_line")){
     console.log("Player " + playerIndex + " reached finish line !");
     $('html').off("keyup");
+    $('#message').html('Finish ! press enter to play again.');
+    $('html').on("keyup",function(event) {
+    if (event.which == 13) {
+      runGame();
+    }
+  });
   }
 
   // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
@@ -28,7 +40,8 @@ var moveForward   = function(playerIndex){
 }
 
 var gameInteraction = function(){
-  $('html').on("keyup",function(event) {
+  $('html').off("keyup");
+  $('html').on( "keyup",function(event) {
     if (event.which == 82) {
       moveForward(1);
 
@@ -72,11 +85,14 @@ var configureGame  = function(trackLength, finish_1, finish_2){
   $('tbody:nth-child(1) td:nth-child(' + finish_1 + ')').addClass("finish_line");
   $('tbody:nth-child(2) td:nth-child(' + finish_2 + ')').addClass("finish_line");
 
+  $('#message').html('PLAY !');
+
 }
 
+
+
 $(document).ready(function() {
-  configureGame(30,3,5);
-  gameInteraction();
+  runGame();
 });
 
 
