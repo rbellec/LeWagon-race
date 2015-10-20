@@ -6,6 +6,10 @@ function runGame(){
 }
 
 
+//------------------------------------------------------------------------
+//------------------------- Game action handlers -------------------------
+//------------------------------------------------------------------------
+
 // Current and next are Jquery element pointing toward td.
 var moveFromCellToCell = function (current,next){
   current.removeClass('active');
@@ -28,10 +32,10 @@ var moveForward   = function(playerIndex){
     $('html').off("keyup");
     $('#message').html('Finish ! press enter to play again.');
     $('html').on("keyup",function(event) {
-    if (event.which == 13) {
-      runGame();
-    }
-  });
+      if (event.which == 13) {
+        runGame();
+      }
+    });
   }
 
   // Le wagon avance : On l'efface de la cellule actuelle pour l'afficher sur la cellule suivante.
@@ -52,6 +56,11 @@ var gameInteraction = function(){
     }
   });
 };
+
+
+//------------------------------------------------------------------------
+//------------------------- Game  initialisation -------------------------
+//------------------------------------------------------------------------
 
 var generateTracks = function(trackLength){
   var lineContent = '';
@@ -90,6 +99,11 @@ var configureGame  = function(trackLength, finish_1, finish_2){
 }
 
 
+
+
+//------------------------------------------------------------------------
+//------------------------- Game  launch !       -------------------------
+//------------------------------------------------------------------------
 
 $(document).ready(function() {
   runGame();
