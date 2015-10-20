@@ -91,8 +91,10 @@ var configureGame  = function(trackLength, trackWidth, finish_1, finish_2){
   // Test that track length are below a limit.
   generateTracks(trackLength, trackWidth);
 
+  var startLine = Math.ceil(trackWidth / 2);
+
   // set first case active
-  $('tbody tr:nth-child(1) td:nth-child(1)').addClass("active");
+  $('tbody tr:nth-child(' + startLine + ') td:nth-child(1)').addClass("active");
 
   // set finish lines
   $('tbody:nth-child(1) td:nth-child(' + finish_1 + ')').addClass("finish_line");
